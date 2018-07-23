@@ -1,0 +1,37 @@
+{
+    "terminal.integrated.shell.windows": "C:\\Program Files\\Git\\bin\\bash.exe",
+    "terminal.integrated.rendererType": "canvas",
+
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.implementationsCodeLens.enabled": true,
+    "typescript.referencesCodeLens.enabled": true,
+    "typescript.format.insertSpaceBeforeFunctionParenthesis": false,
+    "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+    "typescript.format.enable": false,
+    "typescript.preferences.quoteStyle": "double",
+    "typescript.autoImportSuggestions.enabled": true,
+
+    "javascript.format.enable": false,
+    "javascript.preferences.quoteStyle": "double",
+
+    "tslint.autoFixOnSave": true,
+
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/*.js": { "when": "$(basename).ts" },
+        "**/**.js": { "when": "$(basename).tsx" }
+    },
+
+    "editor.rulers": [120],
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true,
+    "editor.renderIndentGuides": true,
+
+    "cSpell.language": "en",
+
+    "deepscan.enable": true
+}

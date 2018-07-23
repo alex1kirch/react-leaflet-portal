@@ -1,0 +1,19 @@
+{
+    "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+    "linterOptions": {
+        "exclude": ["prettier.config.js", "config/**/*.js", "node_modules/**/*.ts", "coverage", "build", "styleguide"]
+    },
+    "rules": {
+        "member-access": [true, "no-public"],
+        "object-literal-sort-keys": {
+            "options": "match-declaration-order",
+            "severity": "warn"
+        }
+    },
+    "jsRules": {
+        "object-literal-sort-keys": {
+            "options": "match-declaration-order",
+            "severity": "warn"
+        }
+    }
+}

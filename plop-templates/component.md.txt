@@ -1,0 +1,4 @@
+{{ pascalCase name }} example:
+```js
+<{{ pascalCase name }} />
+```

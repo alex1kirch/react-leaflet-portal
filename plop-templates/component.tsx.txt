@@ -1,0 +1,23 @@
+import * as React from "react";
+
+/**
+ * Interface for {{ pascalCase name }} properties.
+ * @see {{ pascalCase name }}
+ */
+export interface I{{ pascalCase name }}Props {
+    /** Class name for component's outer div. */
+    className?: string;
+}
+
+/**
+ * Component of {{ pascalCase name }}.
+ */
+export default class {{ pascalCase name }} extends React.Component<I{{ pascalCase name }}Props> {
+    render() {
+        return (
+            <div>
+                
+            </div>
+        );
+    }
+}

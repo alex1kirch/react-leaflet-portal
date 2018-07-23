@@ -1,0 +1,97 @@
+{
+    "name": "react-leaflet-portal",
+    "version": "0.1.0",
+    "private": true,
+    "author": "alex1kirch@users.noreply.github.com",
+    "description": "The repository contains component that renders React portal to leaflet control panel.",
+    "keywords": [
+        "react",
+        "react-component",
+        "react-leaflet",
+        "react-leaflet-control",
+        "react-portal"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alex1kirch/react-leaflet-portal.git"
+    },
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/alex1kirch/react-leaflet-portal/issues"
+    },
+    "main": "build/lib/index.js",
+    "esnext:main": "build/lib/index.js",
+    "types": "build/lib/index.d.ts",
+    "files": [
+        "build/lib"
+    ],
+    "peerDependencies": {
+        "leaflet": "^1.3.3",
+        "react": "^16.3.0",
+        "react-dom": "^16.3.0",
+        "react-leaflet": "^2.0.0"
+    },
+    "dependencies": {},
+    "scripts": {
+        "start": "start http://localhost:6060/ && yarn styleguide",
+        "prebuild": "rimraf ./build ./docs",
+        "build": "tsc --p ./tsconfig.lib.commonjs.json",
+        "test": "react-scripts-ts test --env=jsdom",
+        "eject": "react-scripts-ts eject",
+        "lint-staged": "lint-staged",
+        "test:ci": "cross-env CI=true react-scripts-ts test --env=jsdom --maxWorkers 2 --coverage && codecov",
+        "prettier:diff": "prettier --parser typescript --list-different \"*.{ts,tsx}\"",
+        "ci-check": "yarn prettier:diff && yarn lint",
+        "lint": "tslint '*.{ts,tsx}'",
+        "analyze": "source-map-explorer build/static/js/main.*",
+        "styleguide": "styleguidist server",
+        "styleguide:build": "styleguidist build",
+        "generate": "plop"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged"
+        }
+    },
+    "lint-staged": {
+        "*.{ts,tsx}": [
+            "tslint --fix",
+            "prettier --parser typescript --write",
+            "git add"
+        ]
+    },
+    "devDependencies": {
+        "@types/enzyme": "^3.1.11",
+        "@types/enzyme-adapter-react-16": "^1.0.2",
+        "@types/jest": "^23.3.0",
+        "@types/leaflet": "^1.2.8",
+        "@types/node": "^10.5.2",
+        "@types/react": "^16.4.6",
+        "@types/react-dom": "^16.0.6",
+        "@types/react-leaflet": "^1.1.5",
+        "@types/webpack-env": "^1.13.6",
+        "codecov": "^3.0.2",
+        "cross-env": "^5.2.0",
+        "enzyme": "^3.3.0",
+        "enzyme-adapter-react-16": "^1.1.1",
+        "enzyme-to-json": "^3.3.4",
+        "husky": "^1.0.0-rc.10",
+        "leaflet": "^1.3.3",
+        "lint-staged": "^7.2.0",
+        "plop": "^2.0.0",
+        "prettier": "^1.13.7",
+        "react": "^16.4.1",
+        "react-docgen-typescript": "^1.6.2",
+        "react-dom": "^16.4.1",
+        "react-leaflet": "^2.0.0",
+        "react-scripts-ts": "2.16.0",
+        "react-styleguidist": "^7.1.0",
+        "source-map-explorer": "^1.5.0",
+        "tslint": "^5.10.0",
+        "typescript": "^2.9.2"
+    },
+    "sideEffects": false,
+    "engines": {
+        "node": ">=8.11.3"
+    }
+}
