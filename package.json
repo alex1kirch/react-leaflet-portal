@@ -34,8 +34,9 @@
     "dependencies": {},
     "scripts": {
         "start": "start http://localhost:6060/ && yarn styleguide",
-        "prebuild": "rimraf ./build ./docs",
-        "build": "tsc --p ./tsconfig.lib.commonjs.json",
+        "build": "yarn styleguide:build",
+        "prelib": "rimraf ./build",
+        "lib": "tsc --p ./tsconfig.lib.commonjs.json",
         "test": "react-scripts-ts test --env=jsdom",
         "eject": "react-scripts-ts eject",
         "lint-staged": "lint-staged",
