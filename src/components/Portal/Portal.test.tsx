@@ -36,6 +36,24 @@ describe("<Portal />", () => {
         teardown({ wrapper });
     });
 
+    it("should set a correct initial css class", () => {
+        // arrange
+        const expected = "testclassname";
+        const {
+            props: {
+                leaflet: { map },
+            },
+            wrapper,
+        } = setup({ className: expected });
+        const container = map.getContainer();
+        const children = container.querySelector("[data-test='children']");
+        // act
+        // assert
+        expect(children).not.toBeNull();
+        expect(children!.parentElement!.className).toContain(expected);
+        teardown({ wrapper });
+    });
+
     it("should set a correct initial position", () => {
         // arrange
         const {
@@ -70,4 +88,46 @@ describe("<Portal />", () => {
         expect(children!.parentElement!.parentElement!.className).toEqual("leaflet-top leaflet-right");
         teardown({ wrapper });
     });
+
+    it(`should remove the css class after changing the className property to "undefined"`, () => {
+        // arrange
+        const {
+            props: {
+                leaflet: { map },
+                className: expected,
+            },
+            wrapper,
+        } = setup({ className: "testclassname" });
+        const container = map.getContainer();
+        const children = container.querySelector("[data-test='children']");
+        // act
+        wrapper.setProps({ className: undefined });
+        // assert
+        expect(children).not.toBeNull();
+        expect(children!.parentElement!.className).not.toContain(expected);
+        teardown({ wrapper });
+    });
+
+    function generateCssClassChangingTest(initial: string | undefined, expected: string) {
+        it(`should change the css class after changing the className property from "${initial}" to "${expected}"`, () => {
+            // arrange
+            const {
+                props: {
+                    leaflet: { map },
+                },
+                wrapper,
+            } = setup({ className: initial });
+            const container = map.getContainer();
+            const children = container.querySelector("[data-test='children']");
+            // act
+            wrapper.setProps({ className: expected });
+            // assert
+            expect(children).not.toBeNull();
+            expect(children!.parentElement!.className).toContain(expected);
+            teardown({ wrapper });
+        });
+    }
+
+    generateCssClassChangingTest(undefined, "testclassname");
+    generateCssClassChangingTest("testclassname1", "testclassname2");
 });

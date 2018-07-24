@@ -53,10 +53,20 @@ export class Portal extends React.Component<PortalProps> {
     }
 
     componentDidUpdate(prevProps: PortalProps) {
-        const { position } = this.props;
+        const { position, className } = this.props;
 
         if (position !== prevProps.position) {
             this.leafletElement.setPosition(position);
+        }
+
+        if (className !== prevProps.className) {
+            if (prevProps.className) {
+                L.DomUtil.removeClass(this.el, prevProps.className);
+            }
+
+            if (className) {
+                L.DomUtil.addClass(this.el, className);
+            }
         }
     }
 
