@@ -1,6 +1,6 @@
 {
     "name": "react-leaflet-portal",
-    "version": "0.1.5",
+    "version": "0.1.6",
     "private": false,
     "author": "alex1kirch@users.noreply.github.com",
     "description": "The repository contains component that renders React portal to leaflet control panel.",
