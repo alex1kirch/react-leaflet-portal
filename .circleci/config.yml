@@ -49,12 +49,19 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/repo
+
       - run:
           name: Authenticate with registry
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+
+      - run:
+          name: Build lib
+          command: yarn lib          
+
       - run:
           name: Publish package
           command: npm publish
+
 workflows:
   version: 2
   test-deploy:
@@ -63,6 +70,7 @@ workflows:
           filters:
             branches:
               ignore: gh-pages
+
       - deploy:
           requires:
             - test

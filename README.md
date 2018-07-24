@@ -48,10 +48,13 @@ import * as L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import * as RL from "react-leaflet";
 import { Portal } from "react-leaflet-portal";
+import * as geojson from "geojson";
 import map from "map.json";
 
 type State = { selected?: geojson.Feature };
 export default class MyMap extends React.Component<{}, State> {
+    state: State = {};
+
     highlightFeature = (e: { target: { feature: geojson.Feature } }) => {
         const layer = e.target;
         this.setState({ selected: layer.feature });
@@ -63,13 +66,14 @@ export default class MyMap extends React.Component<{}, State> {
 
     handleEachFeature = (feature: geojson.Feature, layer: L.Layer) => {
         layer.on({
-            mouseover: this.highlightFeature,
             mouseout: this.resetHighlight,
+            mouseover: this.highlightFeature,
         });
     };
 
+    handlePortalClick = () => alert("button clicked!");
+
     render() {
-        const { children } = this.props;
         const { selected } = this.state;
 
         return (
@@ -83,7 +87,7 @@ export default class MyMap extends React.Component<{}, State> {
                     <div style={{ backgroundColor: "#fff", opacity: 0.7, padding: 6 }}>
                         Selected {selected && JSON.stringify(selected.properties)}
                         <br />
-                        <button onClick={() => alert("button clicked!")}>Click me!</button>
+                        <button onClick={this.handlePortalClick}>Click me!</button>
                     </div>
                 </Portal>
             </RL.Map>
