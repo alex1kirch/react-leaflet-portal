@@ -4,7 +4,7 @@ import * as React from "react";
 import * as RL from "react-leaflet";
 
 export default class Wrapper extends React.Component {
-    render(): React.ReactNode {
+    render() {
         const { children } = this.props;
         const center: L.LatLngTuple = [51.505, -0.09];
 
