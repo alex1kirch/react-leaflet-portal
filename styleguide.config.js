@@ -29,6 +29,9 @@ module.exports = {
     ],
     propsParser: require("react-docgen-typescript").withDefaultConfig({ propFilter: { skipPropsWithoutDoc: true } })
         .parse,
+    styleguideComponents: {
+        Wrapper: path.join(__dirname, "src/playground/Wrapper"),
+    },
     webpackConfig: require("react-scripts-ts/config/webpack.config.dev.js"),
     skipComponentsWithoutExample: true,
 };
