@@ -1,7 +1,7 @@
 import { mount } from "enzyme";
 import * as L from "leaflet";
 import * as React from "react";
-import { Portal, PortalProps } from "./Portal";
+import { PortalNoLeaflet, PortalProps } from "./Portal";
 
 const setup = (propOverrides?: Partial<PortalProps>) => {
     const props: PortalProps = {
@@ -13,7 +13,7 @@ const setup = (propOverrides?: Partial<PortalProps>) => {
     };
 
     const children = <div data-test="children">children</div>;
-    const wrapper = mount(<Portal {...props}>{children}</Portal>);
+    const wrapper = mount(<PortalNoLeaflet {...props}>{children}</PortalNoLeaflet>);
 
     return {
         props,

@@ -35,7 +35,7 @@ export type PortalProps = RL.ILeafletContext & IOwnPortalProps;
 /**
  * The Portal component renders React portal to leaflet control panel.
  */
-export class Portal extends React.Component<PortalProps> {
+class Portal extends React.Component<PortalProps> {
     leafletElement: L.Control;
     el: HTMLElement;
 
@@ -77,4 +77,5 @@ export class Portal extends React.Component<PortalProps> {
     }
 }
 
+export { Portal as PortalNoLeaflet };
 export default RL.withLeaflet(Portal);
