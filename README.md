@@ -49,7 +49,8 @@ import "leaflet/dist/leaflet.css";
 import * as RL from "react-leaflet";
 import { Portal } from "react-leaflet-portal";
 import * as geojson from "geojson";
-import map from "map.json";
+// see https://leafletjs.com/examples/choropleth/
+import map from "./us-states.json";
 
 type State = { selected?: geojson.Feature };
 export default class MyMap extends React.Component<{}, State> {
@@ -73,16 +74,25 @@ export default class MyMap extends React.Component<{}, State> {
 
     handlePortalClick = () => alert("button clicked!");
 
+    setStyle = (feature: geojson.Feature) => ({
+        color: "white",
+        dashArray: "3",
+        fillColor: feature === this.state.selected ? "#666" : "red",
+        fillOpacity: 0.7,
+        opacity: 1,
+        weight: 2,
+    });
+
     render() {
         const { selected } = this.state;
 
         return (
-            <RL.Map center={[51.505, -0.09]} zoom={13} style={{ width: "100%", height: "400px" }}>
+            <RL.Map center={[37.8, -96]} zoom={4} style={{ width: "100%", height: "400px" }}>
                 <RL.TileLayer
                     attribution="&amp;copy <a href=&quot;http://osm.org/copyright&quot;>OpenStreetMap</a> contributors"
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <RL.GeoJSON data={map} onEachFeature={this.handleEachFeature} />
+                <RL.GeoJSON data={map} onEachFeature={this.handleEachFeature} style={this.setStyle} />
                 <Portal position="bottomright">
                     <div style={{ backgroundColor: "#fff", opacity: 0.7, padding: 6 }}>
                         Selected {selected && JSON.stringify(selected.properties)}
