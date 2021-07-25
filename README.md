@@ -1,3 +1,7 @@
+DEPRECATED: React-Leaflet 3.2.0 had already solved the issue which solved by creating this package. The React-Leaflet 3.2.0 package use Context, and you can get access to the map object through the `useMap` hook.
+
+So instead of the current React Leaflet Portal package, I recommend using https://react-leaflet.js.org/docs/example-react-control to solving your tasks.
+
 # react-leaflet-portal
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://github.com/alex1kirch/react-leaflet-portal/blob/master/LICENSE) [![Build Status](https://circleci.com/gh/alex1kirch/react-leaflet-portal/tree/master.svg?style=shield)](https://circleci.com/gh/alex1kirch/react-leaflet-portal/tree/master) [![codecov](https://codecov.io/gh/alex1kirch/react-leaflet-portal/branch/master/graph/badge.svg)](https://codecov.io/gh/alex1kirch/react-leaflet-portal)
